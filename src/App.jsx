@@ -4,7 +4,9 @@ import Head from "./components/Head";
 import ModalAboutMe from "./components/ModalAboutMe";
 
 let country_list = ["IDR", "CAD", "JPY", "CHF", "EUR", "GBP"]
-let BASE_URL = `https://api.currencyfreaks.com/latest?apikey=${import.meta.env.VITE_API_KEY}&symbols=${country_list.join(",")}`
+// let BASE_URL = `https://api.currencyfreaks.com/latest?apikey=${import.meta.env.VITE_API_KEY}&symbols=${country_list.join(",")}`
+let BASE_URL = `https://api.currencyfreaks.com/latest?apikey=${process.env.API_KEY}&symbols=${country_list.join(",")}`
+
 
 // console.log(BASE_URL)
 
