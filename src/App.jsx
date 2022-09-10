@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Footer, Table } from "flowbite-react";
 import Head from "./components/Head";
+import ModalAboutMe from "./components/ModalAboutMe";
 
 let country_list = ["IDR", "CAD", "JPY", "CHF", "EUR", "GBP"]
 let BASE_URL = `https://api.currencyfreaks.com/latest?apikey=${import.meta.env.VITE_API_KEY}&symbols=${country_list.join(",")}`
@@ -12,6 +13,7 @@ export default function App() {
   const [weBuy, setWeBuy] = useState([]);
   const [exchangeRate, setExchangeRate] = useState([]);
   const [weSell, setWeSell] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
 
 
   useEffect(() => {
@@ -61,9 +63,10 @@ export default function App() {
             </Table.Body>
           </Table>
           <footer className="flex justify-center items-center mt-5 center ">
-            <Footer.Link href="#About Me">Muhaemin Iskandar </Footer.Link>
+            <button className="underline text-orange-600" onClick={() => setOpenModal(true)}>Muhaemin Iskandar </button>
             &nbsp;for Hacktiv8
           </footer>
+          <ModalAboutMe show={openModal} onClose={() => setOpenModal(false)} />
         </Card>
       </section>
     </>
